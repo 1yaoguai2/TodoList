@@ -110,6 +110,10 @@ function createTaskElement(task) {
     li.dataset.id = task.id;
     if (task.completed) li.classList.add('completed');
 
+    // 保存开始和结束时间到dataset
+    if (task.startTime) li.dataset.startTime = task.startTime;
+    if (task.endTime) li.dataset.endTime = task.endTime;
+
     const taskContent = document.createElement('div');
     taskContent.className = 'task-content';
 
@@ -133,9 +137,14 @@ function createTaskElement(task) {
 
     const startBtn = document.createElement('button');
     startBtn.className = 'start-btn';
-    startBtn.textContent = task.startTime ? '完成' : '开始';
+    // 根据任务状态设置按钮文本和状态
     if (task.completed) {
+        startBtn.textContent = '完成';
         startBtn.disabled = true;
+    } else if (task.startTime) {
+        startBtn.textContent = '完成';
+    } else {
+        startBtn.textContent = '开始';
     }
 
     const deleteBtn = document.createElement('button');
@@ -153,6 +162,7 @@ function createTaskElement(task) {
     li.appendChild(buttonContainer);
     taskList.appendChild(li);
 
+    // 如果任务已经开始，显示时间信息
     if (task.startTime) {
         updateTimeDisplay(timeElement, task);
     }
