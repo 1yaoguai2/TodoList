@@ -6,16 +6,17 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+    background-color: var(--bg-color);
     display: flex;
     justify-content: center;
     padding-top: 50px;
+    color: var(--text-color);
 }
 
 .container {
     width: 90%;
     max-width: 800px;
-    background-color: white;
+    background-color: var(--bg-color);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -23,7 +24,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #333;
+    color: var(--header-text);
     margin-bottom: 20px;
 }
 
@@ -34,11 +35,11 @@ h1 {
 }
 
 .log-btn {
-    background-color: #17a2b8;
+    background-color: var(--log-btn-bg);
 }
 
 .log-btn:hover {
-    background-color: #138496;
+    background-color: var(--log-btn-hover);
 }
 
 .input-section {
@@ -59,9 +60,11 @@ input,
 textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     font-size: 16px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
 }
 
 #taskDescription {
@@ -73,7 +76,7 @@ textarea {
 
 button {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: var(--button-bg);
     color: white;
     border: none;
     border-radius: 5px;
@@ -82,7 +85,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: var(--button-hover);
 }
 
 .progress-section {
@@ -98,14 +101,14 @@ button:hover {
 .progress-bar {
     width: 100%;
     height: 10px;
-    background-color: #e9ecef;
+    background-color: var(--progress-bar-bg);
     border-radius: 5px;
     overflow: hidden;
 }
 
 #progressFill {
     height: 100%;
-    background-color: #4CAF50;
+    background-color: var(--progress-fill-bg);
     width: 0%;
     transition: width 0.3s ease;
 }
@@ -118,8 +121,8 @@ button:hover {
 }
 
 .filter-btn {
-    background-color: #e9ecef;
-    color: #666;
+    background-color: var(--filter-btn-bg);
+    color: var(--filter-btn-text);
 }
 
 .filter-btn:hover {
@@ -127,8 +130,8 @@ button:hover {
 }
 
 .filter-btn.active {
-    background-color: #4CAF50;
-    color: white;
+    background-color: var(--filter-btn-active-bg);
+    color: var(--filter-btn-active-text);
 }
 
 ul {
@@ -140,14 +143,15 @@ li {
     align-items: flex-start;
     justify-content: space-between;
     padding: 10px;
-    background-color: #f8f9fa;
+    background-color: var(--task-bg);
     margin-bottom: 10px;
     border-radius: 5px;
+    color: var(--task-text);
 }
 
 li.completed {
-    background-color: #e9ecef;
-    color: #6c757d;
+    background-color: var(--task-completed-bg);
+    color: var(--task-completed-text);
 }
 
 .task-content {
@@ -163,7 +167,7 @@ li.completed {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #fff;
+    background-color: var(--task-description-bg);
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -171,8 +175,8 @@ li.completed {
     min-width: 200px;
     max-width: 300px;
     font-size: 14px;
-    color: #666;
-    border-left: 3px solid #4CAF50;
+    color: var(--text-color);
+    border-left: 3px solid var(--task-description-border);
     margin-top: 5px;
 }
 
@@ -182,7 +186,7 @@ li.completed {
 
 .task-time {
     font-size: 12px;
-    color: #666;
+    color: var(--task-time-text);
 }
 
 .task-buttons {
@@ -223,7 +227,7 @@ li.completed {
 }
 
 .modal-content {
-    background-color: white;
+    background-color: var(--modal-bg);
     margin: 30px auto;
     padding: 20px;
     width: 90%;
@@ -232,6 +236,7 @@ li.completed {
     max-height: 80vh;
     display: flex;
     flex-direction: column;
+    color: var(--text-color);
 }
 
 .modal-header {
@@ -245,11 +250,13 @@ li.completed {
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-    color: #666;
+    color: var(--text-color);
+    opacity: 0.7;
 }
 
 .close:hover {
-    color: #333;
+    color: var(--text-color);
+    opacity: 1;
 }
 
 .modal-body {
@@ -264,7 +271,7 @@ li.completed {
     gap: 10px;
     margin-bottom: 15px;
     padding: 10px;
-    background-color: #f8f9fa;
+    background-color: var(--task-bg);
     border-radius: 5px;
     align-items: center;
     flex-wrap: wrap;
@@ -278,18 +285,19 @@ li.completed {
 
 .date-input input[type="date"] {
     padding: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     font-size: 14px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
 }
 
 .filter-date-btn {
-    background-color: #17a2b8;
-    padding: 5px 15px;
+    background-color: var(--filter-date-btn-bg);
 }
 
 .filter-date-btn:hover {
-    background-color: #138496;
+    background-color: var(--filter-date-btn-hover);
 }
 
 #logContent {
@@ -297,12 +305,13 @@ li.completed {
     overflow-y: auto;
     white-space: pre-wrap;
     font-family: monospace;
-    background-color: #f8f9fa;
+    background-color: var(--log-content-bg);
     padding: 15px;
     border-radius: 5px;
     margin-bottom: 15px;
     scrollbar-width: thin;
     scrollbar-color: #888 #f1f1f1;
+    color: var(--text-color);
 }
 
 #logContent::-webkit-scrollbar {
@@ -310,17 +319,17 @@ li.completed {
 }
 
 #logContent::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: var(--task-bg);
     border-radius: 4px;
 }
 
 #logContent::-webkit-scrollbar-thumb {
-    background: #888;
+    background: #555;
     border-radius: 4px;
 }
 
 #logContent::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #666;
 }
 
 .log-actions {
@@ -330,17 +339,165 @@ li.completed {
 }
 
 .copy-btn {
-    background-color: #6c757d;
+    background-color: var(--copy-btn-bg);
 }
 
 .copy-btn:hover {
-    background-color: #5a6268;
+    background-color: var(--copy-btn-hover);
 }
 
 .clear-btn {
-    background-color: #dc3545;
+    background-color: var(--clear-btn-bg);
 }
 
 .clear-btn:hover {
-    background-color: #c82333;
+    background-color: var(--clear-btn-hover);
+}
+
+/* 添加主题相关的 CSS 变量 */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --input-bg: #ffffff;
+    --border-color: #ddd;
+    --button-bg: #4CAF50;
+    --button-hover: #45a049;
+    --modal-bg: #ffffff;
+    --task-bg: #f8f9fa;
+    --task-completed-bg: #e9ecef;
+    --task-text: #333333;
+    --task-completed-text: #6c757d;
+    --progress-bar-bg: #e9ecef;
+    --progress-fill-bg: #4CAF50;
+    --filter-btn-bg: #e9ecef;
+    --filter-btn-text: #666;
+    --filter-btn-active-bg: #4CAF50;
+    --filter-btn-active-text: #ffffff;
+    --task-description-bg: #ffffff;
+    --task-description-border: #4CAF50;
+    --task-time-text: #666;
+    --log-content-bg: #f8f9fa;
+    --header-text: #333;
+    --log-btn-bg: #17a2b8;
+    --log-btn-hover: #138496;
+    --filter-date-btn-bg: #17a2b8;
+    --filter-date-btn-hover: #138496;
+    --copy-btn-bg: #6c757d;
+    --copy-btn-hover: #5a6268;
+    --clear-btn-bg: #dc3545;
+    --clear-btn-hover: #c82333;
+}
+
+/* 夜间模式的颜色变量 */
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --input-bg: #333333;
+    --border-color: #444444;
+    --button-bg: #2d662f;
+    --button-hover: #245426;
+    --modal-bg: #2a2a2a;
+    --task-bg: #2a2a2a;
+    --task-completed-bg: #333333;
+    --task-text: #ffffff;
+    --task-completed-text: #888888;
+    --progress-bar-bg: #333333;
+    --progress-fill-bg: #2d662f;
+    --filter-btn-bg: #333333;
+    --filter-btn-text: #ffffff;
+    --filter-btn-active-bg: #2d662f;
+    --filter-btn-active-text: #ffffff;
+    --task-description-bg: #333333;
+    --task-description-border: #2d662f;
+    --task-time-text: #888888;
+    --log-content-bg: #2a2a2a;
+    --header-text: #ffffff;
+    --log-btn-bg: #115d69;
+    --log-btn-hover: #0d4b55;
+    --filter-date-btn-bg: #115d69;
+    --filter-date-btn-hover: #0d4b55;
+    --copy-btn-bg: #495057;
+    --copy-btn-hover: #3d4347;
+    --clear-btn-bg: #a52834;
+    --clear-btn-hover: #881f28;
+}
+
+/* 应用主题颜色 */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.container {
+    background-color: var(--bg-color);
+}
+
+input,
+textarea {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+/* 修改主题切换按钮样式 */
+.theme-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px 12px;
+    margin-left: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--task-bg);
+    transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+    transform: scale(1.05);
+    background-color: var(--task-completed-bg);
+}
+
+.theme-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+/* 添加图标旋转动画 */
+.theme-btn:active .theme-icon {
+    animation: rotate 0.5s ease;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* 修改模态框样式 */
+.modal-content {
+    background-color: var(--modal-bg);
+    color: var(--text-color);
+}
+
+/* 添加过渡效果 */
+body,
+.container,
+input,
+textarea,
+button,
+li,
+.task-description,
+.modal-content,
+#logContent {
+    transition: background-color 0.3s ease, color 0.3s ease;
 }

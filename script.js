@@ -184,7 +184,7 @@ function handleTaskAction(li, timeElement, button) {
         }
     } else {
         // 完成任务时先提示输入完成描述
-        const additionalDesc = prompt("请输入完成时的补充描述（可选）：", taskDesc);
+        const additionalDesc = prompt("请输入完成时的补充描述（可选）：", "完成");
 
         if (additionalDesc !== null) {  // 用户点击确定
             const startTime = new Date(task.startTime);
@@ -317,7 +317,7 @@ function loadTasks() {
     updateProgress();
 }
 
-// 更新进度显示
+// 更新度显示
 function updateProgress() {
     const totalTasks = document.querySelectorAll('#taskList li').length;
     const completedTasks = document.querySelectorAll('#taskList li.completed').length;
@@ -466,7 +466,7 @@ async function filterLogs() {
 function copyLogs() {
     const logText = logContent.textContent;
     navigator.clipboard.writeText(logText).then(() => {
-        alert("日志已复制到剪贴板");
+        alert("志已复制到贴板");
     }).catch(err => {
         console.error('复制失败:', err);
         alert("复制失败，请手动复制");
@@ -520,3 +520,32 @@ window.viewLogs = viewLogs;
 window.filterLogs = filterLogs;
 window.copyLogs = copyLogs;
 window.clearLogs = clearLogs;
+
+// 添加主题切换功能
+function toggleTheme() {
+    const html = document.documentElement;
+    const themeIcon = document.querySelector('.theme-icon');
+
+    if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        themeIcon.textContent = '💡';
+        localStorage.setItem('theme', 'light');
+    } else {
+        html.setAttribute('data-theme', 'dark');
+        themeIcon.textContent = '🌙';
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+// 在页面加载时检查并应用保存的主题
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    const themeIcon = document.querySelector('.theme-icon');
+
+    if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeIcon.textContent = '🌙';
+    } else {
+        themeIcon.textContent = '💡';
+    }
+});
