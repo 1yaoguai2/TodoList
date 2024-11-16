@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>待办事项清单</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>待办事项清单</h1>
+        <div class="header-actions">
+            <button onclick="viewLogs()" class="log-btn">查看日志</button>
+        </div>
+        <div class="input-section">
+            <div class="input-group">
+                <input type="text" id="taskInput" placeholder="请输入待办事项...">
+                <textarea id="taskDescription" placeholder="请输入任务描述（可选）..."></textarea>
+            </div>
+            <button onclick="addTask()">添加</button>
+        </div>
+        <div class="progress-section">
+            <div class="progress-text">已完成: <span id="progressText">0/0</span></div>
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+        </div>
+        <div class="filter-section">
+            <button class="filter-btn active" data-filter="all">全部</button>
+            <button class="filter-btn" data-filter="completed">已完成</button>
+            <button class="filter-btn" data-filter="uncompleted">待完成</button>
+        </div>
+        <ul id="taskList">
+            <!-- 任务列表将通过 JavaScript 动态添加 -->
+        </ul>
+    </div>
+
+    <!-- 日志弹窗 -->
+    <div id="logModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>任务完成日志</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="date-filter">
+                    <div class="date-input">
+                        <label>开始日期：</label>
+                        <input type="date" id="startDate">
+                    </div>
+                    <div class="date-input">
+                        <label>结束日期：</label>
+                        <input type="date" id="endDate">
+                    </div>
+                    <button onclick="filterLogs()" class="filter-date-btn">筛选</button>
+                </div>
+                <div id="logContent"></div>
+                <div class="log-actions">
+                    <button onclick="copyLogs()" class="copy-btn">复制日志</button>
+                    <button onclick="clearLogs()" class="clear-btn">清空日志</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
